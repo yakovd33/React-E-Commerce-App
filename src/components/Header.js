@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { BrowserRouter as Router, NavLink } from 'react-router-dom';
 
 function Header() {
     return (
@@ -6,7 +7,7 @@ function Header() {
             <div id="header-top">
                 <div className="container" id="header-top-wrap">
                     <div id="header-top-left">
-                        <img src="public/images/logo.png" alt="" id="header-logo" />
+                        <img src="images/logo.png" alt="" id="header-logo" />
                     </div>
 
                     <div id="header-top-center">
@@ -40,7 +41,14 @@ function Header() {
 
                     <div id="header-bottom-left">
                         <div id="header-bottom-links">
-                            <a href="#" className="header-bottom-link active">Home</a>
+                            <NavLink to="/" className="header-bottom-link" activeClassName="active">
+                                Home
+                            </NavLink>
+
+                            <NavLink to="/categories/" className="header-bottom-link" activeClassName="active">
+                                Categories
+                            </NavLink>
+
                             <a href="#" className="header-bottom-link">New Arrivals</a>
                             <a href="#" className="header-bottom-link">Trending</a>
                             <a href="#" className="header-bottom-link">Deals For You</a>

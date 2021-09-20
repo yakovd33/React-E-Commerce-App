@@ -6,3 +6,4 @@ export { default as Recommended } from './Home/Recommended';
 export { default as Banner } from './Home/Banner';
 export { default as Collection } from './Home/Collection';
 export { default as CollectionProductBig } from './Home/CollectionProductBig';
+export { default as TopProducts } from './Home/TopProducts';
