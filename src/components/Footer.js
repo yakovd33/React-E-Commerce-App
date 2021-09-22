@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import logo from '../logo.png';
 
 function Footer() {
     return (
@@ -7,7 +8,7 @@ function Footer() {
                 <div id="footer-content">
                     <div id="footer-cols">
                     <div className="footer-col" id="footer-about-col">
-                        <img src="images/logo.png" height="30px" alt="" id="footer-logo" />
+                        <img src={ logo } height="30px" alt="" id="footer-logo" />
                         <p id="footer-about">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates natus voluptate a doloremque eius, molestiae quaerat consequatur fugit dolore ducimus.</p>
                     </div>
 

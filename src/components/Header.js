@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../logo.png';
 import { BrowserRouter as Router, NavLink } from 'react-router-dom';
 
 function Header() {
@@ -7,7 +8,7 @@ function Header() {
             <div id="header-top">
                 <div className="container" id="header-top-wrap">
                     <div id="header-top-left">
-                        <img src="images/logo.png" alt="" id="header-logo" />
+                        <img src={ logo } alt="" id="header-logo" />
                     </div>
 
                     <div id="header-top-center">
