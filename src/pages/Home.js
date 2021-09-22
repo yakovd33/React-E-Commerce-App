@@ -6,11 +6,11 @@ function Home() {
         <div>
             <Slider/>
             <Recommended/>
-            <Banner image="images/banners/sneaker-banner.png" text="Sneakers Never Run Out Of Style Get 50% Off Sitewide" linkText="Start Shopping" link=""/>
+            <Banner image={ `${process.env.PUBLIC_URL}/images/banners/sneaker-banner.png` } text="Sneakers Never Run Out Of Style Get 50% Off Sitewide" linkText="Start Shopping" link=""/>
             <Collection title="NEW COLLECTION" subtitle="Straight From Nike"/>
-            <Banner image="images/banners/sneaker-banner.png" text="Sneakers Never Run Out Of Style Get 50% Off Sitewide" linkText="Start Shopping" link=""/>
+            <Banner image={ `${process.env.PUBLIC_URL}/images/banners/sneaker-banner.png` } text="Sneakers Never Run Out Of Style Get 50% Off Sitewide" linkText="Start Shopping" link=""/>
 			<TopProducts/>
-            <Banner image="images/banners/sneaker-banner.png" text="Sneakers Never Run Out Of Style Get 50% Off Sitewide" linkText="Start Shopping" link=""/>
+            <Banner image={ `${process.env.PUBLIC_URL}/images/banners/sneaker-banner.png` } text="Sneakers Never Run Out Of Style Get 50% Off Sitewide" linkText="Start Shopping" link=""/>
 		</div>
     )
 }

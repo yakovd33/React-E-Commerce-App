@@ -6,22 +6,22 @@ function Collection() {
         {
 			id: 1,
 			title: "Apple Watch Series 7",
-			image: "images/products/watch1.png",
+			image: `${process.env.PUBLIC_URL}/images/products/watch1.png`,
 			price: "550",
 		}, {
 			id: 2,
 			title: "Apple Watch Series 6",
-			image: "images/products/watch2.png",
+			image: `${process.env.PUBLIC_URL}/images/products/watch2.png`,
 			price: "450",
 		}, {
 			id: 3,
 			title: "Apple Watch Series 5",
-			image: "images/products/watch1.png",
+			image: `${process.env.PUBLIC_URL}/images/products/watch1.png`,
 			price: "350",
 		}, {
 			id: 4,
 			title: "Apple Watch Series 4",
-			image: "images/products/watch2.png",
+			image: `${process.env.PUBLIC_URL}/images/products/watch2.png`,
 			price: "250",
 		}
     ]);
@@ -29,7 +29,7 @@ function Collection() {
     const [ bigproduct, setCollectionBigProduct ] = useState({
         id: 5,
         title: "Apple Watch Series 4",
-        image: "images/products/nike.png",
+        image: `${process.env.PUBLIC_URL}/images/products/nike.png`,
         price: "250",
     });
 

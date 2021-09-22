@@ -19,9 +19,9 @@ function Header() {
 
                     <div id="header-top-right">
                         <div id="header-actions">
-                            <div className="header-action" id="heart-action"><img src="images/icons/heart.png" alt="" /></div>
-                            <div className="header-action" id="account-action"><img src="images/icons/account.png" alt="" /></div>
-                            <div className="header-action" id="cart-action"><img src="images/icons/cart.png" alt="" /></div>
+                            <div className="header-action" id="heart-action"><img src={ `${process.env.PUBLIC_URL}/images/icons/heart.png` } alt="" /></div>
+                            <div className="header-action" id="account-action"><img src={ `${process.env.PUBLIC_URL}/images/icons/account.png` } alt="" /></div>
+                            <div className="header-action" id="cart-action"><img src={ `${process.env.PUBLIC_URL}/images/icons/cart.png` } alt="" /></div>
                         </div>
                     </div>
                 </div>

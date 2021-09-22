@@ -36,7 +36,7 @@ function Slider() {
 
             <div id="slider-items">
                 { slides && slides.map(item =>
-                    <div className="slider-item" style={{ background: `url("${item.image}")`, transform: `translateX(-${current * 100}vw)` }}>
+                    <div className="slider-item" style={{ background: `url('${process.env.PUBLIC_URL}/${item.image}')`, transform: `translateX(-${current * 100}vw)` }}>
                         <div className="slider-bg"></div>
                         <div className="slider-content">
                             <h1 className="slider-title">{ item.title }</h1>
