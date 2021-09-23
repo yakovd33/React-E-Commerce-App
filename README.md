@@ -4,7 +4,7 @@ Pages:
 1. Homepage - ✔️
 2. Categories List - ✔️
 3. Category - ✔️
-5. Single Product
+5. Single Product - ✔️
 6. Cart
 7. Checkout
 8. Login

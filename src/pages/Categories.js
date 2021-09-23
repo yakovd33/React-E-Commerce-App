@@ -25,7 +25,7 @@ function Categories() {
     }]);
 
     return (
-        <div id="categories-page-wrap">
+        <div id="categories-page-wrap" className="page-wrap-grey">
             <div className="container">
                 <div id="categories-wrap">
                     { categories.map(item => (

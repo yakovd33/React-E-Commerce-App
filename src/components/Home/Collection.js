@@ -34,7 +34,7 @@ function Collection() {
     });
 
     return (
-        <section className="collection-section">
+        <section className="collection-section page-wrap-grey">
             <div className="container">
                 <div className="container-content">
                     <div class="section-title">

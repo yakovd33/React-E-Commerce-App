@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../logo.png';
-import { BrowserRouter as Router, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink, Link } from 'react-router-dom';
 
 function Header() {
     return (
@@ -8,7 +8,9 @@ function Header() {
             <div id="header-top">
                 <div className="container" id="header-top-wrap">
                     <div id="header-top-left">
-                        <img src={ logo } alt="" id="header-logo" />
+                        <Link to="/">
+                            <img src={ logo } alt="" id="header-logo" />
+                        </Link>
                     </div>
 
                     <div id="header-top-center">

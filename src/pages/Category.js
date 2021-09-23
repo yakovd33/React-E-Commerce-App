@@ -50,7 +50,7 @@ function Category() {
 	]);
 
     return (
-        <section className="category-products-section">
+        <section className="category-products-section page-wrap-grey">
             <div className="container">
                 <div className="container-content">
                     <div class="section-title">

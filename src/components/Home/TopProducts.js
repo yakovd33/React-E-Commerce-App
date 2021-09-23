@@ -47,7 +47,7 @@ function TopProducts() {
 	]);
 
     return (
-        <section className="top-products-section">
+        <section className="top-products-section page-wrap-grey">
             <div className="container">
                 <div className="container-content">
                     <div class="section-title">
