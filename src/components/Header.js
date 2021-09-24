@@ -23,7 +23,9 @@ function Header() {
                         <div id="header-actions">
                             <div className="header-action" id="heart-action"><img src={ `${process.env.PUBLIC_URL}/images/icons/heart.png` } alt="" /></div>
                             <div className="header-action" id="account-action"><img src={ `${process.env.PUBLIC_URL}/images/icons/account.png` } alt="" /></div>
-                            <div className="header-action" id="cart-action"><img src={ `${process.env.PUBLIC_URL}/images/icons/cart.png` } alt="" /></div>
+                            <Link to="/cart/">
+                                <div className="header-action" id="cart-action"><img src={ `${process.env.PUBLIC_URL}/images/icons/cart.png` } alt="" /></div>
+                            </Link>
                         </div>
                     </div>
                 </div>

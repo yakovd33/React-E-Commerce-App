@@ -13,3 +13,7 @@ export { default as TopProducts } from './Home/TopProducts';
 
 // Categories
 export { default as CategoryItem } from './Categories/CategoryItem';
+
+// Cart
+export { default as CartList } from './Cart/CartList';
+export { default as CartTotals } from './Cart/CartTotals';
