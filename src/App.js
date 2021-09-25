@@ -8,6 +8,7 @@ import Category from "./pages/Category";
 import Categories from "./pages/Categories";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 
 import { CartContext } from './contexts/CartContext';
 
@@ -36,6 +37,7 @@ function App() {
 						<Route exact path="/category/:id/" component={ Category }/>
 						<Route exact path="/product/:id/" component={ Product }/>
 						<Route exact path="/cart/" component={ Cart }/>
+						<Route exact path="/checkout/" component={ Checkout }/>
 						<Route exact path="/" component={ Home }/>
 					</Switch>
 					<Footer/>

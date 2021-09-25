@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../logo.png';
 import { BrowserRouter as Router, NavLink, Link } from 'react-router-dom';
+import { CartContext } from '../contexts/CartContext';
 
 function Header() {
+    const [ cart, setCart ] = useContext(CartContext);
+
     return (
         <header>
             <div id="header-top">
@@ -24,7 +27,11 @@ function Header() {
                             <div className="header-action" id="heart-action"><img src={ `${process.env.PUBLIC_URL}/images/icons/heart.png` } alt="" /></div>
                             <div className="header-action" id="account-action"><img src={ `${process.env.PUBLIC_URL}/images/icons/account.png` } alt="" /></div>
                             <Link to="/cart/">
-                                <div className="header-action" id="cart-action"><img src={ `${process.env.PUBLIC_URL}/images/icons/cart.png` } alt="" /></div>
+                                <div className="header-action" id="cart-action">
+                                    { (cart.length > 0) && <div id="cart-action-badge">{ cart.length }</div> }
+
+                                    <img src={ `${process.env.PUBLIC_URL}/images/icons/cart.png` } alt="" />
+                                </div>
                             </Link>
                         </div>
                     </div>

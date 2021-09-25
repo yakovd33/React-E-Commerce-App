@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { CartContext } from '../contexts/CartContext';
 
 function Product() {
     const { id } = useParams();
-    const { product, setProduct } = useState({
+    const [ product, setProduct ] = useState({
         title: 'Apple Watch Series 7',
         price: 450
     });
@@ -25,6 +26,35 @@ function Product() {
     }
 
     const [ tab, setTab ] = useState(1);
+    
+    // Cart actions
+    const [ cart, setCart ] = useContext(CartContext);
+    const handleAddToCart = (e) => {
+        e.preventDefault();
+
+        let found = false;
+        
+        setCart(cart.map((item) => {
+            if (item.id === id) {
+                found = true;
+                console.log('foundd. quantity: ' + item.quantity);
+                return {
+                    ...item, quantity: parseInt(item.quantity + amountValue)
+                }
+            }
+
+            return item;
+        }));
+
+        if (!found) {
+            setCart((cart) => [ ...cart, {
+                id: id,
+                title: product.title,
+                price: product.price,
+                quantity: amountValue
+            } ])
+        }
+    }
 
     return (
         <div id="product-page-wrap" className="page-wrap-grey">
@@ -68,7 +98,7 @@ function Product() {
                                 <button id="single-product-add-to-cart-form-minus" onClick={ handlePlus }>+</button>
                             </div>
 
-                            <button id="single-product-add-to-cart-btn">ADD TO CART</button>
+                            <button id="single-product-add-to-cart-btn" onClick={ (e) => handleAddToCart(e) }>ADD TO CART</button>
                         </form>
 
                         <table id="single-product-actions">

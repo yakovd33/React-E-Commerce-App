@@ -6,7 +6,7 @@ Pages:
 3. Category - ✔️
 5. Single Product - ✔️
 6. Cart - ✔️
-7. Checkout
+7. Checkout - ✔️
 8. Login
 9. Register
 10. My Account
