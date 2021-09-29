@@ -2,9 +2,12 @@ import React, { useContext } from 'react';
 import logo from '../logo.png';
 import { BrowserRouter as Router, NavLink, Link } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
+import { UserContext } from '../contexts/UserContext';
+import { isLogged } from '../helpers/UserHelper';
 
 function Header() {
     const [ cart, setCart ] = useContext(CartContext);
+    const [ user, setUser ] = useContext(UserContext);
 
     return (
         <header>
@@ -25,7 +28,11 @@ function Header() {
                     <div id="header-top-right">
                         <div id="header-actions">
                             <div className="header-action" id="heart-action"><img src={ `${process.env.PUBLIC_URL}/images/icons/heart.png` } alt="" /></div>
-                            <div className="header-action" id="account-action"><img src={ `${process.env.PUBLIC_URL}/images/icons/account.png` } alt="" /></div>
+                            
+                            <Link to={ `${ isLogged(user) ? '/account/' : '/login/' }` }>
+                                <div className="header-action" id="account-action"><img src={ `${process.env.PUBLIC_URL}/images/icons/account.png` } alt="" /></div>
+                            </Link>
+
                             <Link to="/cart/">
                                 <div className="header-action" id="cart-action">
                                     { (cart.length > 0) && <div id="cart-action-badge">{ cart.length }</div> }

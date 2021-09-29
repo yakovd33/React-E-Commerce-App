@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
+import { addToCart } from '../helpers/CartHelper';
 
 function Product() {
     const { id } = useParams();
@@ -29,31 +30,11 @@ function Product() {
     
     // Cart actions
     const [ cart, setCart ] = useContext(CartContext);
+
     const handleAddToCart = (e) => {
         e.preventDefault();
 
-        let found = false;
-        
-        setCart(cart.map((item) => {
-            if (item.id === id) {
-                found = true;
-                console.log('foundd. quantity: ' + item.quantity);
-                return {
-                    ...item, quantity: parseInt(item.quantity + amountValue)
-                }
-            }
-
-            return item;
-        }));
-
-        if (!found) {
-            setCart((cart) => [ ...cart, {
-                id: id,
-                title: product.title,
-                price: product.price,
-                quantity: amountValue
-            } ])
-        }
+        addToCart(product, cart, setCart, amountValue);
     }
 
     return (

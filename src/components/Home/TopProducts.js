@@ -50,9 +50,9 @@ function TopProducts() {
         <section className="top-products-section page-wrap-grey">
             <div className="container">
                 <div className="container-content">
-                    <div class="section-title">
-                        <div class="section-title-sup">TOP PRODUCTS</div>
-                        <h1 class="section-title-main">Trending This Week</h1>
+                    <div className="section-title">
+                        <div className="section-title-sup">TOP PRODUCTS</div>
+                        <h1 className="section-title-main">Trending This Week</h1>
                     </div>
 
                     <div className="top-products-products">

@@ -1310,3 +1310,76 @@ div#shipping-form-error {
   border: 1px solid #c53535;
   box-shadow: 0 0 15px #ffd7d7;
 }
+
+/* Login Page */
+#login-page-wrap {
+  padding: 30px;
+  width: 100%;
+}
+
+#login-page-wrap .login-page {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#login-page-wrap .form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#login-page-wrap .form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+#login-page-wrap .form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+#login-page-wrap .form button:hover, #login-page-wrap.form button:active, #login-page-wrap .form button:focus {
+  background: #43A047;
+}
+
+#login-page-wrap .form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+#login-page-wrap .form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+#login-page-wrap .form .register-form, #login-page-wrap .form .login-form {
+  display: none;
+}
+
+#login-page-wrap .form .register-form.active, #login-page-wrap .form .login-form.active {
+  display: block;
+}

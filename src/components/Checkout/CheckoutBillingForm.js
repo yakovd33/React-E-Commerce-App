@@ -21,21 +21,21 @@ function CheckoutBillingForm({ setIsInPayment }) {
 
     return (
         <div id="checkout-billing-form">
-            <div class="container">
-                <div class="form__name">Shipping and Billing</div>
-                <div class="form__container">
-                    <section class="form__personal">
-                        <div class="personal--form">
-                            <form class="form--name" action="">
-                                <div class="first">
+            <div className="container">
+                <div className="form__name">Shipping and Billing</div>
+                <div className="form__container">
+                    <section className="form__personal">
+                        <div className="personal--form">
+                            <form className="form--name" action="">
+                                <div className="first">
                                     <label for="firstname">First Name</label>
                                     <input placeholder="e.g. Richard" value={ firstname } onChange={ (e) => setFirstname(e.target.value) } className={ `${ error && !firstname.length ? 'missing' : '' }` } id="firstname" type="text" />
                                 </div>
-                                <div class="last">
+                                <div className="last">
                                     <label for="firstname">Last Name</label>
                                     <input placeholder="e.g. Bovell" value={ lastname } onChange={ (e) => setLastname(e.target.value) } id="firstname" type="text" className={ `${ error && !lastname.length ? 'missing' : '' }` } />
                                 </div>
-                                <div class="email">
+                                <div className="email">
                                     <label for="firstname">Email</label>
                                     <input placeholder="e.g. rb@apple.com" value={ email } onChange={ (e) => setEmail(e.target.value) } id="firstname" type="email" className={ `${ error && !email.length ? 'missing' : '' }` } />
                                 </div>
@@ -43,27 +43,27 @@ function CheckoutBillingForm({ setIsInPayment }) {
                         </div>
                     </section>
                     
-                    <section class="form__shipping">
-                        <div class="shipping--form">
-                            <form class="form--shipping" action="">
-                                <div class="row one">
-                                    <div class="address">
+                    <section className="form__shipping">
+                        <div className="shipping--form">
+                            <form className="form--shipping" action="">
+                                <div className="row one">
+                                    <div className="address">
                                         <label for="address-one">Address</label>
                                         <input placeholder="" value={ address } onChange={ (e) => setAddress(e.target.value) } id="address-one" type="text" className={ `${ error && !address.length ? 'missing' : '' }` }/>
                                     </div>
 
-                                    <div class="city">
+                                    <div className="city">
                                         <label for="city">City</label>
                                         <input placeholder="" value={ city } onChange={ (e) => setCity(e.target.value) } id="city" type="text" className={ `${ error && !city.length ? 'missing' : '' }` }/>
                                     </div>
                                 </div>
 
-                                <div class="row three">
-                                    <div class="zip">
+                                <div className="row three">
+                                    <div className="zip">
                                         <label for="zip">Zip / Postal Code (Optional)</label>
                                         <input placeholder="" value={ zip } onChange={ (e) => setZip(e.target.value) } id="zip" type="text" />
                                     </div>
-                                    <div class="country">
+                                    <div className="country">
                                         <label for="country">Country</label>
                                         <input placeholder="" value={ country } onChange={ (e) => setCountry(e.target.value) } id="country" type="text" className={ `${ error && !country.length ? 'missing' : '' }` } />
                                     </div>
@@ -73,7 +73,7 @@ function CheckoutBillingForm({ setIsInPayment }) {
                     </section>
                     
                     { error && <div id="shipping-form-error">{ error }</div> }
-                    <div class="form__confirmation">
+                    <div className="form__confirmation">
                         <button onClick={ handleContinue }>Continue to payment</button>
                     </div>
                 </div>

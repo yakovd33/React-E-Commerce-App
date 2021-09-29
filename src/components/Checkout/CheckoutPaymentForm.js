@@ -15,46 +15,46 @@ function CheckoutPaymentForm({ setIsInPayment }) {
 
     return (
         <div id="checkout-payment-wrap">
-            <div class="container" id="payment-container">
-                <div class="price">
+            <div className="container" id="payment-container">
+                <div className="price">
                     <h1>Awesome, that's ${ total } !</h1>
                 </div>
-                <div class="card__container">
-                    <div class="card">
-                        <div class="row paypal">
-                            <div class="left">
+                <div className="card__container">
+                    <div className="card">
+                        <div className="row paypal">
+                            <div className="left">
                                 <input id="pp" type="radio" name="payment" />
-                                <div class="radio"></div>
+                                <div className="radio"></div>
                                 <label for="pp">Paypal</label>
                             </div>
-                            <div class="right">
+                            <div className="right">
                                 <img src={ `${process.env.PUBLIC_URL}/images/icons/paypal.png` } alt="paypal" />
                             </div>
                         </div>
-                        <div class="row credit">
-                            <div class="left">
+                        <div className="row credit">
+                            <div className="left">
                                 <input id="cd" type="radio" name="payment" />
-                                <div class="radio"></div>
+                                <div className="radio"></div>
                                 <label for="cd">Debit/ Credit Card</label>
                             </div>
-                            <div class="right">
+                            <div className="right">
                                 <img src={ `${process.env.PUBLIC_URL}/images/icons/credit-cards.png` } alt="" />
                             </div>
                         </div>
-                        <div class="row cardholder">
-                            <div class="info">
+                        <div className="row cardholder">
+                            <div className="info">
                                 <label for="cardholdername">Name</label>
                                 <input placeholder="e.g. Richard Bovell" id="cardholdername" type="text" />
                             </div>
                         </div>
-                        <div class="row number">
-                            <div class="info">
+                        <div className="row number">
+                            <div className="info">
                                 <label for="cardnumber">Card number</label>
                                 <input id="cardnumber" type="text" pattern="[0-9]{16,19}" maxlength="19" placeholder="8888-8888-8888-8888"/>
                             </div>
                         </div>
-                        <div class="row details">
-                            <div class="left">
+                        <div className="row details">
+                            <div className="left">
                                 <label for="expiry-date">Expiry</label>
                                 <select id="expiry-date">
                                     <option>MM</option>
@@ -90,7 +90,7 @@ function CheckoutPaymentForm({ setIsInPayment }) {
                                     <option value="2030">2030</option>
                                 </select>
                             </div>
-                            <div class="right">
+                            <div className="right">
                                 <label for="cvv">CVC/CVV</label>
                                 <input type="text" maxlength="4" placeholder="123"/>
                                 <span data-balloon-length="medium" data-balloon="The 3 or 4-digit number on the back of your card." data-balloon-pos="up">i</span>
@@ -98,8 +98,8 @@ function CheckoutPaymentForm({ setIsInPayment }) {
                         </div>
                     </div>
                 </div>
-                <div class="button">
-                    <button type="submit"><i class="ion-locked"></i> Confirm and Pay</button>
+                <div className="button">
+                    <button type="submit"><i className="ion-locked"></i> Confirm and Pay</button>
                     <a href="#" onClick={ () => setIsInPayment(false) } id="checkout-billing-return-link">Or, return to edit billing information</a>
                 </div>
             </div>

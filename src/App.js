@@ -9,8 +9,10 @@ import Categories from "./pages/Categories";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
+import Login from "./pages/Login";
 
 import { CartContext } from './contexts/CartContext';
+import { UserContext } from './contexts/UserContext';
 
 import "./App.css";
 
@@ -26,23 +28,33 @@ function App() {
 		price: 7,
 		quantity: 8
 	}]);
+	
+	// const [ user, setUser ] = useState({
+	// 	login_token: '1234',
+	// 	isAdmin: false
+	// });
+	
+	const [ user, setUser ] = useState(null);
 
 	return (
 		<CartContext.Provider value={ [ cart, setCart ] }>
-			<div className="App">
-				<Router>
-					<Header/>
-					<Switch>
-						<Route exact path="/categories/" component={ Categories }/>
-						<Route exact path="/category/:id/" component={ Category }/>
-						<Route exact path="/product/:id/" component={ Product }/>
-						<Route exact path="/cart/" component={ Cart }/>
-						<Route exact path="/checkout/" component={ Checkout }/>
-						<Route exact path="/" component={ Home }/>
-					</Switch>
-					<Footer/>
-				</Router>
-			</div>
+			<UserContext.Provider value={ [ user, setUser ] }>
+				<div className="App">
+					<Router>
+						<Header/>
+						<Switch>
+							<Route exact path="/categories/" component={ Categories }/>
+							<Route exact path="/category/:id/" component={ Category }/>
+							<Route exact path="/product/:id/" component={ Product }/>
+							<Route exact path="/cart/" component={ Cart }/>
+							<Route exact path="/checkout/" component={ Checkout }/>
+							<Route exact path="/login/" component={ Login }/>
+							<Route exact path="/" component={ Home }/>
+						</Switch>
+						<Footer/>
+					</Router>
+				</div>
+			</UserContext.Provider>
 		</CartContext.Provider>
 	);
 }

@@ -37,9 +37,9 @@ function Collection() {
         <section className="collection-section page-wrap-grey">
             <div className="container">
                 <div className="container-content">
-                    <div class="section-title">
-                        <div class="section-title-sup">Straight From Nike</div>
-                        <h1 class="section-title-main">New Collection</h1>
+                    <div className="section-title">
+                        <div className="section-title-sup">Straight From Nike</div>
+                        <h1 className="section-title-main">New Collection</h1>
                     </div>
 
                     <div className="collection-products">
