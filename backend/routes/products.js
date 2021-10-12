@@ -6,7 +6,7 @@ var productsController = require('../controllers/productsController');
 router.post('/', productsController.create_product);
 
 // Get all products
-router.get('/', productsController.get_all_products);
+router.get('/', productsController.get_products);
 
 // Update a product
 router.put('/', productsController.update_product);

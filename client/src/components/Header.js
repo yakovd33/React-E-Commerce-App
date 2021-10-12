@@ -1,13 +1,44 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from '../logo.png';
 import { BrowserRouter as Router, NavLink, Link } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
 import { UserContext } from '../contexts/UserContext';
 import { isLogged } from '../helpers/UserHelper';
+import { ApiCall } from '../helpers/ApiHelper';
+import ReactHtmlParser from 'react-html-parser';
 
 function Header() {
     const [ cart, setCart ] = useContext(CartContext);
     const [ user, setUser ] = useContext(UserContext);
+    const [ keyword, setKeyword ] = useState('');
+    const [ results, setResults ] = useState([]);
+    const [ blurSearch, setBlur ] = useState(false);
+
+    const makeBold = (input, text) => {
+        var kwd = keyword;
+
+        var searchMask = kwd;
+        var regEx = new RegExp(searchMask, "ig");
+        var replaceMask = "<strong>" + kwd + "</strong>";
+
+        return text.replace(regEx, replaceMask);
+    }
+
+    const handleSearchType = (e) => {
+        ApiCall('autocomplete/?keyword=' + keyword, null, (res) => {
+            setResults(res);
+        });
+
+        if (!keyword.length) {
+            setResults([]);
+        }
+    }
+
+    const handleBlur = (e) => {
+        setTimeout(function () {
+            setBlur(true);
+        }, 200)
+    }
 
     return (
         <header>
@@ -21,7 +52,15 @@ function Header() {
 
                     <div id="header-top-center">
                         <form action="" id="header-search-form">
-                            <input type="text" placeholder="Search For Products, Brands & Categories" />
+                            <input onBlur={ handleBlur } onFocus={ () => setBlur(false) } type="text" value={ keyword } onChange={ (e) => setKeyword(e.target.value) } placeholder="Search For Products, Brands & Categories" onKeyUp={ (e) => handleSearchType(e) } />
+
+                            { (results.length > 0) && <div id="header-search-result" class={ ` ${blurSearch}` }>
+                                { results.map(result => (
+                                    <Link to={ `/product/${ result.id }` }>
+                                        <div className="header-search-item"> {ReactHtmlParser(makeBold(keyword, result.title)) }</div>
+                                    </Link>
+                                )) }
+                            </div> }
                         </form>
                     </div>
 

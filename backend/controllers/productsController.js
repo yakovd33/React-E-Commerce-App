@@ -15,18 +15,21 @@ module.exports.create_product = async function (req, res) {
 }
 
 // READ
-module.exports.get_all_products = async function (req, res) {
+module.exports.get_products = async function (req, res) {
     res.set('content-type', 'application/json');
 
     category = req.query.category;
+    product_id = req.query.product_id;
 
     let products;
 
     try {
         if (!category) {
             products = await Product.find();
-        } else {
+        } else if (!product_id) {
             products = await Product.find({ categories: category });
+        } else {
+            products = await Product.find({ id: product_id });
         }
     } catch (err) {
         res.status(500).send(err._message);
