@@ -762,6 +762,18 @@ span.category-card-num-products {
   display: block;
 }
 
+#product-not-found-wrap {
+  text-align: center;
+}
+
+#product-not-found-wrap h1 {
+  color: #e30000;
+}
+
+#product-not-found-wrap a {
+  text-decoration: underline;
+}
+
 #cart-content-wrap {
   display: flex;
   padding: 30px;

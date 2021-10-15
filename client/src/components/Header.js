@@ -4,7 +4,7 @@ import { BrowserRouter as Router, NavLink, Link } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
 import { UserContext } from '../contexts/UserContext';
 import { isLogged } from '../helpers/UserHelper';
-import { ApiCall } from '../helpers/ApiHelper';
+import { ApiCallGet } from '../helpers/ApiHelper';
 import ReactHtmlParser from 'react-html-parser';
 
 function Header() {
@@ -25,7 +25,7 @@ function Header() {
     }
 
     const handleSearchType = (e) => {
-        ApiCall('autocomplete/?keyword=' + keyword, null, (res) => {
+        ApiCallGet('autocomplete/?keyword=' + keyword, null, (res) => {
             setResults(res);
         });
 
@@ -54,7 +54,7 @@ function Header() {
                         <form action="" id="header-search-form">
                             <input onBlur={ handleBlur } onFocus={ () => setBlur(false) } type="text" value={ keyword } onChange={ (e) => setKeyword(e.target.value) } placeholder="Search For Products, Brands & Categories" onKeyUp={ (e) => handleSearchType(e) } />
 
-                            { (results.length > 0) && <div id="header-search-result" class={ ` ${blurSearch}` }>
+                            { (results.length > 0) && <div id="header-search-result" className={ ` ${blurSearch}` }>
                                 { results.map(result => (
                                     <Link to={ `/product/${ result.id }` }>
                                         <div className="header-search-item"> {ReactHtmlParser(makeBold(keyword, result.title)) }</div>

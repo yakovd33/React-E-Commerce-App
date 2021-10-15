@@ -19,18 +19,35 @@ module.exports.get_products = async function (req, res) {
     res.set('content-type', 'application/json');
 
     category = req.query.category;
-    product_id = req.query.product_id;
+    product_id = req.query.product;
 
     let products;
 
     try {
-        if (!category) {
+        if (!category && !product_id) {
             products = await Product.find();
         } else if (!product_id) {
             products = await Product.find({ categories: category });
         } else {
             products = await Product.find({ id: product_id });
         }
+
+        // Make products object writeable by converting in to JSON object
+        products = JSON.parse(JSON.stringify(products));
+
+        for (i = 0; i < products.length; i++) {
+            tmp_product_cat = [];
+            categories = products[i].categories;
+
+            for (j = 0; j < categories.length; j++) {
+                cat = await Category.findOne({ id: categories[j] });
+                console.log(cat);
+                tmp_product_cat.push(cat);
+            }
+
+            products[i].categories = tmp_product_cat;
+        }
+
     } catch (err) {
         res.status(500).send(err._message);
     }
