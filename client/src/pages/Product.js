@@ -38,7 +38,7 @@ function Product() {
 
     // Get product from API
     useEffect(() => {
-        ApiCallGet('products?product=' + id, null, (res) => {
+        ApiCallGet('products?product=' + id, (res) => {
             if (res.length) {
                 setProduct(res[0]);
             } else {

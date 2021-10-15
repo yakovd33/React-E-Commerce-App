@@ -25,7 +25,7 @@ function Header() {
     }
 
     const handleSearchType = (e) => {
-        ApiCallGet('autocomplete/?keyword=' + keyword, null, (res) => {
+        ApiCallGet('autocomplete/?keyword=' + keyword, (res) => {
             setResults(res);
         });
 

@@ -40,7 +40,7 @@ var productsRouter = require('./routes/products');
 var autocompleteRouter = require('./routes/autocomplete');
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/users', usersRouter);
 app.use('/api/products', productsRouter);
 app.use('/api/autocomplete', autocompleteRouter);
 

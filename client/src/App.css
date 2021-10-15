@@ -23,7 +23,7 @@ a {
 
 .cute-btn {
   padding: 10px 20px;
-  background-color: #f14e4f;
+  background-color: #4CAF50;
   border: none;
   border-radius: 4px;
   color: #fff;
@@ -182,7 +182,7 @@ header {
 }
 
 #header-bottom-links .header-bottom-link.active {
-  border-bottom: 3px solid #f14e4f;
+  border-bottom: 3px solid #4CAF50;
 }
 
 #cart-action {
@@ -198,8 +198,8 @@ header {
   width: 20px;
   border-radius: 50%;
   text-align: center;
-  background-color: #f14e4f;
-  box-shadow: 0 5px 20px #e25253a6;
+  background-color: #4CAF50;
+  box-shadow: 0 5px 20px #4caf5085;
   color: #fff;
   font-size: 0.8rem;
 }
@@ -361,8 +361,8 @@ footer {
 }
 
 .product-card .product-price {
-  background-color: #fff0e9;
-  color: #f14e4f;
+  background-color: #dbf3de;
+  color: #4CAF50;
   font-weight: bold;
   padding: 5px 15px;
   border-radius: 50px;
@@ -456,7 +456,7 @@ footer {
   top: 30px;
   right: 30px;
   background-color: #fff;
-  color: #f14e4f;
+  color: #4CAF50;
   font-weight: bold;
   padding: 5px 15px;
   border-radius: 50px;
@@ -559,7 +559,7 @@ span.category-card-num-products {
 }
 
 #product-sale-badge {
-  background-color: #f14e4f;
+  background-color: #4CAF50;
   padding: 8px 29px;
   color: #fff;
   font-weight: bold;
@@ -567,7 +567,7 @@ span.category-card-num-products {
   top: 25px;
   left: 25px;
   border-radius: 50px;
-  box-shadow: 0 5px 20px #e25253a6;
+  box-shadow: 0 5px 20px #6fb77269;
 }
 
 #single-product-category {
@@ -899,7 +899,7 @@ span.category-card-num-products {
 }
 
 .cart-delete-option {
-  background-color: #f14e4f;
+  background-color: #4CAF50;
   color: #fff;  
 }
 
@@ -1432,4 +1432,18 @@ div#shipping-form-error {
 
 #login-page-wrap .form .register-form.active, #login-page-wrap .form .login-form.active {
   display: block;
+}
+
+#register-form-error-feedback {
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  margin-top: -5px;
+  color: #a90000;
+}
+
+#register-form-success-feedback {
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  margin-top: -5px;
+  color: #4a914d;
 }
