@@ -1,11 +1,13 @@
-export function isLogged (user) {
-    return (user && user.login_token);
-}
-
-export function logout (user, setUser) {
-    setUser(null)
-}
-
-export function isAdmin (user) {
-    return (user.isAdmin)
+export default class UserHelper {
+    static isLogged (user) {
+        return (user)
+    }
+    
+    static logout (user, setUser) {
+        setUser(null)
+    }
+    
+    static isAdmin (user) {
+        return (user.isAdmin)
+    }
 }

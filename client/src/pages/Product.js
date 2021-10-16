@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
 import { addToCart } from '../helpers/CartHelper';
-import { ApiCallGet } from '../helpers/ApiHelper';
+import ApiHelper, { ApiCallGet } from '../helpers/ApiHelper';
 
 function Product() {
     const { id } = useParams();
@@ -38,7 +38,7 @@ function Product() {
 
     // Get product from API
     useEffect(() => {
-        ApiCallGet('products?product=' + id, (res) => {
+        ApiHelper.get('products?product=' + id, (res) => {
             if (res.length) {
                 setProduct(res[0]);
             } else {

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CategoryItem } from '../components';
+import ApiHelper, { apiCallGet } from '../helpers/ApiHelper';
 
 function Categories() {
     const [ categories, setCategories ] = useState([{
@@ -23,6 +24,12 @@ function Categories() {
         image: 'images/products/watch1.png',
         num_products: 44
     }]);
+
+    useEffect(() => {
+        ApiHelper.get('categories/get_all', (res) => {
+            setCategories(res)
+        })
+    }, []);
 
     return (
         <div id="categories-page-wrap" className="page-wrap-grey">

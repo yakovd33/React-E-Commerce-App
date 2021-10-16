@@ -1,17 +1,41 @@
 import axios from 'axios';
 
-export function ApiCallGet (url, callback) {
-    URL = 'http://localhost:5000/api/' + url;
-    
-    axios.get(URL).then((response) => {
-        callback(response.data);
-    }).catch((error) => {  })
-}
+export default class ApiHelper {
+    static get (url, callback){
+        URL = 'http://localhost:5000/api/' + url;
 
-export function ApiCallPost (url, params = {}, callback) {
-    URL = 'http://localhost:5000/api/' + url;
+        let headers = {};
+
+        if (localStorage.getItem('token')) {
+            let user = JSON.parse(localStorage.getItem('user'));
+
+            if (user.accessToken) {
+                headers.token = 'Bearer ' + user.accessToken;
+                headers.uid = user._id;
+            }
+        }
+
+        axios.get(URL, { headers: headers }).then((response) => {
+            callback(response.data);
+        }).catch((error) => {  })
+    }
     
-    axios.post(URL, params).then((response) => {
-        callback(response.data);
-    }).catch((error) => {  })
+    static post (url, params = {}, callback) {
+        URL = 'http://localhost:5000/api/' + url;
+
+        let headers = {};
+
+        if (localStorage.getItem('token')) {
+            let user = JSON.parse(localStorage.getItem('user'));
+
+            if (user.accessToken) {
+                headers.token = 'Bearer ' + user.accessToken;
+                headers.uid = user._id;
+            }
+        }
+        
+        axios.post(URL, params, { headers: headers }).then((response) => {
+            callback(response.data);
+        }).catch((error) => {  })
+    }
 }

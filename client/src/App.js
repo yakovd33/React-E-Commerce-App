@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Header, Footer } from "./components";
@@ -10,6 +10,7 @@ import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
+import ApiHelper from './helpers/ApiHelper';
 
 import { CartContext } from './contexts/CartContext';
 import { UserContext } from './contexts/UserContext';
@@ -35,6 +36,12 @@ function App() {
 	// });
 	
 	const [ user, setUser ] = useState(null);
+
+	useEffect(() => {
+		if (localStorage.getItem('user')) {
+			setUser(JSON.parse(localStorage.getItem('user')));
+        }
+	}, [])
 
 	return (
 		<CartContext.Provider value={ [ cart, setCart ] }>

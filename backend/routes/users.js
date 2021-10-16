@@ -11,8 +11,11 @@ router.post('/register', userController.register);
 router.post('/login', userController.login);
 
 // Logged only
-router.get('/loggedonly/:id', verifyTokenAndAuthorization, (req, res) => {
+router.get('/loggedonly', verifyTokenAndAuthorization, (req, res) => {
     res.send('Valid')
 })
+
+// Get logged user info
+router.get('/logged_info/:id', verifyTokenAndAuthorization, userController.logged_info)
 
 module.exports = router;

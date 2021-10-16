@@ -86,3 +86,12 @@ module.exports.login = async function (req, res) {
         })
     }
 }
+
+module.exports.logged_info = (req, res) => {
+    user_id = req.params.id;
+
+    User.findOne({ id: user_id }, (err, result) => {
+        const { pass_hashed, ...others } = result._doc;
+        res.status(200).json(others);
+    })
+}

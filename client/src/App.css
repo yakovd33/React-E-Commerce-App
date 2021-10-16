@@ -498,7 +498,7 @@ footer {
 #categories-wrap {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .category-card {
@@ -512,6 +512,7 @@ footer {
   flex-direction: column;
   color: #121212;
   box-shadow: 0 0 15px #c3c3c357;
+  margin: 0.5%;
 }
 
 span.category-card-num-products {

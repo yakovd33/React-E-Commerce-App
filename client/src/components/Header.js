@@ -3,8 +3,8 @@ import logo from '../logo.png';
 import { BrowserRouter as Router, NavLink, Link } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
 import { UserContext } from '../contexts/UserContext';
-import { isLogged } from '../helpers/UserHelper';
-import { ApiCallGet } from '../helpers/ApiHelper';
+import UserHelper from '../helpers/UserHelper';
+import ApiHelper, { ApiCallGet } from '../helpers/ApiHelper';
 import ReactHtmlParser from 'react-html-parser';
 
 function Header() {
@@ -25,7 +25,7 @@ function Header() {
     }
 
     const handleSearchType = (e) => {
-        ApiCallGet('autocomplete/?keyword=' + keyword, (res) => {
+        ApiHelper.get('autocomplete/?keyword=' + keyword, (res) => {
             setResults(res);
         });
 
@@ -68,7 +68,7 @@ function Header() {
                         <div id="header-actions">
                             <div className="header-action" id="heart-action"><img src={ `${process.env.PUBLIC_URL}/images/icons/heart.png` } alt="" /></div>
                             
-                            <Link to={ `${ isLogged(user) ? '/account/' : '/login/' }` }>
+                            <Link to={ `${ UserHelper.isLogged(user) ? '/account/' : '/login/' }` }>
                                 <div className="header-action" id="account-action"><img src={ `${process.env.PUBLIC_URL}/images/icons/account.png` } alt="" /></div>
                             </Link>
 

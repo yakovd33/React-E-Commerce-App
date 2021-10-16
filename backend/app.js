@@ -35,14 +35,16 @@ app.options('*', cors());
 
 // Routers
 var indexRouter = require('./routes/index');
+var autocompleteRouter = require('./routes/autocomplete');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
-var autocompleteRouter = require('./routes/autocomplete');
+var categoriesRouter = require('./routes/categories');
 
 app.use('/', indexRouter);
+app.use('/api/autocomplete', autocompleteRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/products', productsRouter);
-app.use('/api/autocomplete', autocompleteRouter);
+app.use('/api/categories', categoriesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

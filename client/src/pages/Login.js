@@ -1,8 +1,16 @@
-import React, { useState } from "react";
-import { ApiCallPost } from '../helpers/ApiHelper';
+import React, { useState, useEffect } from "react";
+import ApiHelper from '../helpers/ApiHelper';
+import UserHelper from '../helpers/UserHelper';
 
 function Login() {
     const [ form, setForm ] = useState('login');
+
+    // Redirect if already logged
+    useEffect(() => {
+        if (UserHelper.isLogged) {
+            window.location.href = '/';
+        }
+    }, [])
 
     const [ registerFullname, setRegisterFullName ] = useState('');
     const [ registerEmail, setRegisterEmail ] = useState('');
@@ -12,7 +20,7 @@ function Login() {
 
     const handleRegister = (e) => {
         e.preventDefault();
-        ApiCallPost('users/register/', {
+        ApiHelper.post('users/register/', {
             fullname: registerFullname,
             email: registerEmail,
             password: registerPassword
@@ -39,7 +47,22 @@ function Login() {
     const [ loginErrorMsg, setLoginErrorMsg ] = useState('');
 
     const handleLogin = (e) => {
+        e.preventDefault();
 
+        ApiHelper.post('users/login', {
+            email: loginEmail,
+            password: loginPassword
+        }, (res) => {
+            console.log(res);
+            if (res.error) {
+                setLoginErrorMsg(res.error);
+            } else {
+                // Login successful
+                setLoginErrorMsg('');
+                localStorage.setItem('user', JSON.stringify(res));
+                window.location.href = '/'
+            }
+        })
     }
 
 	return (
@@ -57,7 +80,7 @@ function Login() {
                                     { registerErrorMsg  }
                                 </div> }
 
-                                { !registerErrorMsg && finishedRegister &&  <div id="register-form-error-feedback">You're now register. you can <a href="#" onClick={ () => setForm('login') }>Sign In</a></div> }
+                                { !registerErrorMsg && finishedRegister &&  <div id="register-form-success-feedback">You're now register. you can <a href="#" onClick={ () => setForm('login') }>Sign In</a></div> }
                                 
                                 <button onClick={ (e) => handleRegister(e) }>Register</button>
                                 <p className="message">
@@ -68,6 +91,11 @@ function Login() {
                             <form className={ `login-form ${ form == 'login' ? 'active' : '' }` }>
                                 <input type="text" value={ loginEmail } onChange={ (e) => setLoginEmail(e.target.value) } placeholder="username" />
                                 <input type="password" value={ loginPassword } onChange={ (e) => setLoginPassword(e.target.value) } placeholder="password" />
+                                
+                                { loginErrorMsg && <div id="register-form-error-feedback">
+                                    { loginErrorMsg  }
+                                </div> }
+                                
                                 <button onClick={ (e) => handleLogin(e) }>login</button>
                                 <p className="message">
                                     Not registered? <a href="#" onClick={ () => setForm('register') }>Create an account</a>

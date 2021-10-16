@@ -19,10 +19,16 @@ verifyToken = (req, res, next) => {
 
 verifyTokenAndAuthorization = (req, res, next) => {
     verifyToken(req, res, () => {
-        if (req.user.id === req.params.id || req.user.isAdmin) {
-            next();
+        if (req.headers.uid != undefined) {
+            uid = req.headers.uid;
+
+            if (req.user.id === uid || req.user.isAdmin) {
+                next();
+            } else {
+                res.status(403).json("You're not allowed to do that.")
+            }
         } else {
-            res.status(403).json("You're not allowed to do that.")
+            res.status(403).json("Missing user id.")
         }
     })
 }
