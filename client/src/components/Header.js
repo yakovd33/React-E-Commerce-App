@@ -41,7 +41,7 @@ function Header() {
     }
 
     return (
-        <header>
+        <header id="main-header">
             <div id="header-top">
                 <div className="container" id="header-top-wrap">
                     <div id="header-top-left">
@@ -99,7 +99,7 @@ function Header() {
 
                     <div id="header-bottom-left">
                         <div id="header-bottom-links">
-                            <NavLink to="/" className="header-bottom-link" activeClassName="active">
+                            <NavLink to="/" exact={true} className="header-bottom-link" activeClassName="active">
                                 Home
                             </NavLink>
 

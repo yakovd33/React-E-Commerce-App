@@ -10,6 +10,7 @@ import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
+import Admin from "./Admin";
 import ApiHelper from './helpers/ApiHelper';
 
 import { CartContext } from './contexts/CartContext';
@@ -56,6 +57,7 @@ function App() {
 							<Route exact path="/cart/" component={ Cart }/>
 							<Route exact path="/checkout/" component={ Checkout }/>
 							<Route exact path="/login/" component={ Login }/>
+							<Route path="/admin/" component={ Admin }/>
 							<Route exact path="/" component={ Home }/>
 						</Switch>
 						<Footer/>
