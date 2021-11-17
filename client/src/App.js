@@ -42,7 +42,7 @@ function App() {
 		if (localStorage.getItem('user')) {
 			setUser(JSON.parse(localStorage.getItem('user')));
         }
-	}, [])
+	}, []);
 
 	return (
 		<CartContext.Provider value={ [ cart, setCart ] }>
@@ -56,8 +56,8 @@ function App() {
 							<Route exact path="/product/:id/" component={ Product }/>
 							<Route exact path="/cart/" component={ Cart }/>
 							<Route exact path="/checkout/" component={ Checkout }/>
-							<Route exact path="/login/" component={ Login }/>
-							<Route path="/admin/" component={ Admin }/>
+							<Route exact path="/login/" component={ Login } user={ user }/>
+							<Route path="/admin/" component={ Admin } />
 							<Route exact path="/" component={ Home }/>
 						</Switch>
 						<Footer/>

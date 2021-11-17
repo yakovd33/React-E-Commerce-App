@@ -45,7 +45,7 @@ function Product() {
                 setProductNotFound(true);
             }
         });
-    }, [])
+    }, [ id ])
 
     return (
         <div id="product-page-wrap" className="page-wrap-grey">

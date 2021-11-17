@@ -17,6 +17,23 @@ body {
     color: #121212;
 }
 
+.back-link {
+    display: flex;
+    align-items: center;
+}
+
+.back-link svg {
+    margin-right: 10px;
+}
+
+.input-box {
+    display: block;
+    padding: 7px 10px;
+    border: 1px solid #cecece;
+    border-radius: 4px;
+    width: 100%;
+}
+
 /* HEADER */
 #admin-header {
     height: 65px;
@@ -46,7 +63,7 @@ body {
 }
 
 #admin-header-logo img {
-    height: 40px;
+    height: 35px;
 }
 
 /* SIDEBAR */
@@ -195,6 +212,23 @@ table.product-table .product-table-img {
 
 /* Products tab */
 
+#new-product-trigger, #new-category-trigger {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    height: 50px;
+    width: 50px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+    background-color: #4CAF50;
+    box-shadow: 0 5px 20px #4caf5085;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 #main-products-table .product-table-name-col {
     width: 30%;
 }
@@ -202,17 +236,20 @@ table.product-table .product-table-img {
 .product-action-trigger {
     height: 35px;
     width: 35px;
-    background-color: #63bf63;
+    background-color: #4CAF50;
+    box-shadow: 0 5px 20px #4caf5085;
     color: #fff;
     text-align: center;
     line-height: 42px;
     border-radius: 50%;
     margin: 0 5px;
     display: inline-block;
+    cursor: pointer;
 }
 
 .product-action-trigger.delete {
     background-color: #c51818;
+    box-shadow: 0 5px 20px #cf444485;
 }
 
 /* Orders tab */
@@ -287,4 +324,44 @@ table.product-table .product-table-img {
     display: inline-block;
     margin-right: 10px;
     font-size: 1.3rem;
+}
+
+/* New product */
+#new-product-form {
+    margin-top: 40px;
+}
+
+#new-product-form .input-box {
+    margin-bottom: 10px;
+}
+
+#new-product-form label {
+    margin-bottom: 3px;
+    display: block;
+}
+
+#new-product-feedback a {
+    text-decoration: underline;
+}
+
+#new-product-cats-wrap {
+    display: flex;
+}
+
+#new-product-cats-wrap > label {
+    margin-right: 10px;
+}
+
+/* New Category */
+#new-category-form input {
+    margin: 10px 0;
+}
+
+#new-category-feedback {
+    margin: 10px 0;
+    color: red;
+}
+
+#new-category-feedback.success {
+    color: green;
 }

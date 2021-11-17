@@ -38,4 +38,25 @@ export default class ApiHelper {
             callback(response.data);
         }).catch((error) => {  })
     }
+
+    static delete (url, callback) {
+        URL = 'http://localhost:5000/api/' + url;
+        console.log('eeeeee');
+
+        let headers = {};
+
+        if (localStorage.getItem('token')) {
+            let user = JSON.parse(localStorage.getItem('user'));
+
+            if (user.accessToken) {
+                headers.token = 'Bearer ' + user.accessToken;
+                headers.uid = user._id;
+            }
+        }
+        
+        axios.delete(URL, { headers: headers }).then((response) => {
+            callback(response.data);
+            console.log(response);
+        }).catch((error) => { console.log(error); })
+    }
 }

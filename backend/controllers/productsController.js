@@ -71,10 +71,12 @@ module.exports.update_product = async function (req, res) {
 // DELETE
 module.exports.delete_product = async function (req, res) {
     try {
-        var productId = req.body.id;
+        var productId = req.params.id;
 
         if (productId) {
             await Product.deleteOne({ id: productId }).then(() => res.status(200).send(''));
+        } else {
+            res.status(200).json({ error: 'Missing product id' })
         }
     } catch (err) {
         res.status(500).send(err._message);

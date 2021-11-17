@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import logo from '../logo.png';
 import { BrowserRouter as Router, NavLink, Link } from 'react-router-dom';
 import { CartContext } from '../contexts/CartContext';
@@ -6,6 +6,7 @@ import { UserContext } from '../contexts/UserContext';
 import UserHelper from '../helpers/UserHelper';
 import ApiHelper, { ApiCallGet } from '../helpers/ApiHelper';
 import ReactHtmlParser from 'react-html-parser';
+import { MdOutlineAdminPanelSettings } from 'react-icons/md';
 
 function Header() {
     const [ cart, setCart ] = useContext(CartContext);
@@ -13,6 +14,9 @@ function Header() {
     const [ keyword, setKeyword ] = useState('');
     const [ results, setResults ] = useState([]);
     const [ blurSearch, setBlur ] = useState(false);
+    const [ isAdmin, setIsAdmin ] = useState(false);
+
+    const [ togAccountDropdown, setTogAccountDropdown ] = useState(false);
 
     const makeBold = (input, text) => {
         var kwd = keyword;
@@ -40,6 +44,26 @@ function Header() {
         }, 200)
     }
 
+    const handleLogout = () => {
+        UserHelper.logout(user, setUser);
+    }
+
+    const handleAccountClick = () => {
+        if (UserHelper.isLogged(user)) {
+            setTogAccountDropdown(!togAccountDropdown)
+        } else {
+            window.location.href = "/login"
+        }
+    }
+
+    useEffect(() => {
+        if (user && user.isAdmin) {
+            setIsAdmin(true)
+        } else {
+            setIsAdmin(false)
+        }
+    }, [ user ]);
+
     return (
         <header id="main-header">
             <div id="header-top">
@@ -66,11 +90,23 @@ function Header() {
 
                     <div id="header-top-right">
                         <div id="header-actions">
+                            { isAdmin &&  <Link to="/admin/">
+                                <div className="header-action" id="admin-action">
+                                    <MdOutlineAdminPanelSettings/>
+                                </div>
+                            </Link>}
+
                             <div className="header-action" id="heart-action"><img src={ `${process.env.PUBLIC_URL}/images/icons/heart.png` } alt="" /></div>
                             
-                            <Link to={ `${ UserHelper.isLogged(user) ? '/account/' : '/login/' }` }>
-                                <div className="header-action" id="account-action"><img src={ `${process.env.PUBLIC_URL}/images/icons/account.png` } alt="" /></div>
-                            </Link>
+                            <div className="header-action" id="account-action" onClick={ handleAccountClick }>
+                                <img src={ `${process.env.PUBLIC_URL}/images/icons/account.png` } alt="" />
+
+                                { UserHelper.isLogged(user) &&
+                                    <div id="account-dropdown" className={ `${ !togAccountDropdown ? 'hide' : '' }` }>
+                                        <Link to="/account/"><a href="#">My Account</a></Link>
+                                        <a href="#" onClick={ handleLogout }>Logout</a>
+                                    </div> }
+                            </div>
 
                             <Link to="/cart/">
                                 <div className="header-action" id="cart-action">

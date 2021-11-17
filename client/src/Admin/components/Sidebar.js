@@ -7,8 +7,15 @@ import { BsBox } from 'react-icons/bs';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { FiSettings } from 'react-icons/fi';
 import { FiLogOut } from 'react-icons/fi';
+import { BiCategory } from 'react-icons/bi';
 
-function Sidebar() {
+import UserHelper from '../../helpers/UserHelper';
+
+function Sidebar({ user, setUser }) {
+    const handleLogout = () => {
+        UserHelper.logout(user, setUser);
+    }
+
     return (
         <div id="admin-sidebar">
             <div id="sidebar-links">
@@ -27,6 +34,11 @@ function Sidebar() {
                     <span className="text">Products</span>
                 </NavLink>
 
+                <NavLink to="/admin/categories" activeClassName="active" className="sidebar-link">
+                    <span className="icon"><BiCategory /></span>
+                    <span className="text">Categories</span>
+                </NavLink>
+
                 <NavLink to="/admin/orders" activeClassName="active" className="sidebar-link">
                     <span className="icon"><AiOutlineShoppingCart /></span>
                     <span className="text">Orders</span>
@@ -37,7 +49,7 @@ function Sidebar() {
                     <span className="text">Settings</span>
                 </NavLink>
 
-                <div class="sidebar-link" id="admin-sidebar-logout-btn">
+                <div class="sidebar-link" onClick={ handleLogout } id="admin-sidebar-logout-btn">
                     <span className="icon"><FiLogOut/></span>
                     <span className="text">Log Out</span>
                 </div>

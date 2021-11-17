@@ -35,6 +35,14 @@
   cursor: pointer;
 }
 
+#no-auth-msg {
+  padding: 50px 0;
+}
+
+.hide {
+  display: none !important;
+}
+
 /* Grid */
 .container {
   max-width: 1200px;
@@ -171,10 +179,61 @@ header {
 #header-actions {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+}
+
+#admin-action {
+  font-size: 26px;
+  line-height: 26px;
 }
 
 #header-actions .header-action {
   margin-left: 10px;
+  cursor: pointer;
+}
+
+#account-action {
+  position: relative;
+}
+
+#account-action #account-dropdown {
+  position: absolute;
+  width: 200px;
+  right: -50%;
+  top: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px #c3c3c357;
+  margin-right: -15px;
+}
+
+#account-action #account-dropdown:after, #account-action #account-dropdown:before {
+	bottom: 100%;
+	right: 20px;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+#account-action #account-dropdown:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-bottom-color: #fff;
+	border-width: 15px;
+	margin-left: -15px;
+}
+
+#account-action #account-dropdown:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-bottom-color: #ebebeb;
+	border-width: 15px;
+	margin-left: -15px;
 }
 
 #header-bottom-wrap {

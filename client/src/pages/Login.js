@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import ApiHelper from '../helpers/ApiHelper';
 import UserHelper from '../helpers/UserHelper';
 
-function Login() {
+function Login({ user }) {
     const [ form, setForm ] = useState('login');
 
     // Redirect if already logged
     useEffect(() => {
-        if (UserHelper.isLogged) {
+        if (UserHelper.isLogged(user)) {
             window.location.href = '/';
         }
     }, [])
@@ -89,8 +89,8 @@ function Login() {
                             </form>
 
                             <form className={ `login-form ${ form == 'login' ? 'active' : '' }` }>
-                                <input type="text" value={ loginEmail } onChange={ (e) => setLoginEmail(e.target.value) } placeholder="username" />
-                                <input type="password" value={ loginPassword } onChange={ (e) => setLoginPassword(e.target.value) } placeholder="password" />
+                                <input type="text" value={ loginEmail } onChange={ (e) => setLoginEmail(e.target.value) } placeholder="Email" />
+                                <input type="password" value={ loginPassword } onChange={ (e) => setLoginPassword(e.target.value) } placeholder="Password" />
                                 
                                 { loginErrorMsg && <div id="register-form-error-feedback">
                                     { loginErrorMsg  }
