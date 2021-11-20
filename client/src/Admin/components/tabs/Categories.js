@@ -23,9 +23,10 @@ function Categories() {
     }
 
     return (
-        <div>
+        <div className="card">
             <Link to="/admin/categories/new/" id="new-category-trigger"><AiOutlinePlus/></Link>
 
+            <h3>Website Categories</h3>
             <table id="category-list" className="product-table">
                 <tr>
                     <th>#</th>
@@ -36,7 +37,7 @@ function Categories() {
                 { categories.map((category) => (
                     <tr>
                         <td>{ category.cat_id }</td>
-                        <td>{ category.title }</td>
+                        <td className="cat-title-col">{ category.title }</td>
                         <td>
                             <Link to="/admin/edit/1"><span className="product-action-trigger edit"><FaPencilAlt/></span></Link>
                             <span className="product-action-trigger delete" onClick={ () => handleDelete(category.cat_id) }><FaTrash/></span>

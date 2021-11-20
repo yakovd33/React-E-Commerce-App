@@ -4,7 +4,6 @@ export function addToCart (product, cart, setCart, amount) {
     setCart(cart.map((item) => {
         if (item.id === product.id) {
             found = true;
-            console.log('foundd. quantity: ' + item.quantity);
             return {
                 ...item, quantity: parseInt(item.quantity + amount)
             }
@@ -21,4 +20,10 @@ export function addToCart (product, cart, setCart, amount) {
             quantity: amount
         } ])
     }
+
+    updateCartLocalStorage(cart);
+}
+
+export function updateCartLocalStorage (cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
 }

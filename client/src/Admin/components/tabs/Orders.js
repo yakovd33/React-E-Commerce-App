@@ -4,7 +4,9 @@ import { BsCheck } from 'react-icons/bs';
 
 function Orders() {
     return (
-        <div>
+        <div className="card">
+            <h3>Website Orders</h3><br />
+
             <div id="orders-filtering">
                 <div id="orders-search">
                     <BiSearch/> <input type="text" placeholder="Search by order ID, name or email..." />
@@ -20,7 +22,7 @@ function Orders() {
                 </div>
             </div>
 
-            <div id="orders-card" className="card">
+            <div id="orders-card">
                 <table id="orders-table">
                     <tr className="orders-table-heading">
                         <th>

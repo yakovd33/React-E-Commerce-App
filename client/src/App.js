@@ -19,17 +19,7 @@ import { UserContext } from './contexts/UserContext';
 import "./App.css";
 
 function App() {
-	const [ cart, setCart ] = useState([{
-		id: 1,
-		title: 'Lemons',
-		price: 10,
-		quantity: 3
-	}, {
-		id: 2,
-		title: 'Potatos',
-		price: 7,
-		quantity: 8
-	}]);
+	const [ cart, setCart ] = useState([]);
 	
 	// const [ user, setUser ] = useState({
 	// 	login_token: '1234',
@@ -42,6 +32,10 @@ function App() {
 		if (localStorage.getItem('user')) {
 			setUser(JSON.parse(localStorage.getItem('user')));
         }
+
+		if (localStorage.getItem('cart')) {
+			setCart(JSON.parse(localStorage.getItem('cart')));
+		}
 	}, []);
 
 	return (

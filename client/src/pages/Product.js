@@ -41,6 +41,7 @@ function Product() {
         ApiHelper.get('products?product=' + id, (res) => {
             if (res.length) {
                 setProduct(res[0]);
+                setProductNotFound(false);
             } else {
                 setProductNotFound(true);
             }

@@ -365,3 +365,7 @@ table.product-table .product-table-img {
 #new-category-feedback.success {
     color: green;
 }
+
+.cat-title-col {
+    width: 70%;
+}

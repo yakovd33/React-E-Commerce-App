@@ -27,6 +27,7 @@ function Products() {
             <Link to="/admin/products/new/" id="new-product-trigger"><AiOutlinePlus/></Link>
 
             <div className="card">
+                <h3>Website Products</h3>
                 <table id="main-products-table" className="product-table">
                     <tr>
                         <th>No.</th>

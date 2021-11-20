@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../../contexts/CartContext';
 import { Link } from 'react-router-dom';
+import { updateCartLocalStorage } from '../../helpers/CartHelper';
 
 function CartList() {
     const [ cart, setCart ] = useContext(CartContext);
@@ -8,6 +9,7 @@ function CartList() {
     const handleRemove = (cart_item_id) => {
         const newCart = cart.filter((item) => item.id !== cart_item_id);
         setCart(newCart);
+        updateCartLocalStorage(newCart);
     }
 
     return (
