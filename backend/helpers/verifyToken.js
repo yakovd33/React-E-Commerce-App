@@ -22,7 +22,7 @@ verifyTokenAndAuthorization = (req, res, next) => {
         if (req.headers.uid != undefined) {
             uid = req.headers.uid;
 
-            if (req.user.id === uid && req.user.isAdmin) {
+            if (req.user.id == uid && req.user.isAdmin) {
                 next();
             } else {
                 res.status(403).json("You're not allowed to do that.")
